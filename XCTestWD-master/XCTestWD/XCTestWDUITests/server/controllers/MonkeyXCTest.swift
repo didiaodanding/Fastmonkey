@@ -100,12 +100,64 @@ extension Monkey {
                 let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
                 let root = session.application
                 if root != nil{
-                    let usage = "xpath"
-                    let tag = "//XCUIElementTypeOther[@name='登录']/XCUIElementTypeTextField"
+                    let usage = "name"
+                    let tag = "帐号密码登录"
+                    //let cgy = try? XCTestWDFindElementUtils.tree(underElement: root!)
                     let element = try? XCTestWDFindElementUtils.filterElement(usingText: usage, withvalue: tag, underElement: root!)
                     if let element = element {
                         if element != nil {
-                            self?.addXCTestLoginAction(application: application)
+                            self?.addXCTestLoginAction(element:element!, application: application)
+                        }
+                        else{
+                            return
+                        }
+                    }
+                }
+            }catch{
+                return
+            }
+        }
+    }
+    
+    /**
+     Add an action that check H5 keypoint, at a fixed interval,
+     if find key point, take quit H5 Page event
+     */
+    public func addXCTestAppQuiteH5Page(interval:Int, application:XCUIApplication) {
+        addAction(interval:interval){ [weak self] in
+            do{
+                let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
+                let root = session.application
+                if root != nil{
+                    let element = XCTestWDFindElementUtils.getElement(underElement: root!)
+                    if (element)! {
+                        self?.addXCTestQuitH5PageAction(application: application)
+                    }else{
+                            return
+                        }
+                }
+            }catch{
+                return
+            }
+        }
+    }
+    
+    /**
+     Add an action that check 玩吧 keypoint, at a fixed interval,
+     if find key point, take quit 玩吧 Page event
+     */
+    public func addXCTestAppQuiteGamePlayPage(interval:Int, application:XCUIApplication) {
+        addAction(interval:interval){ [weak self] in
+            do{
+                let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
+                let root = session.application
+                if root != nil{
+                    let usage = "name"
+                    let tag = "小游戏"
+                    let element = try? XCTestWDFindElementUtils.filterElement(usingText: usage, withvalue: tag, underElement: root!)
+                    if let element = element {
+                        if element != nil {
+                            self?.addXCTestQuitGamePlayPageAction(application: application)
                         }
                         else{
                             return

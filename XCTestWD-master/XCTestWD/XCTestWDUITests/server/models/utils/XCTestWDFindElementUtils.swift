@@ -19,6 +19,10 @@ class XCTestWDFindElementUtils {
         return underElement.rootName()
     }
     
+    static func getElement(underElement:XCUIElement) -> Bool?{
+        return underElement.checkH5Page()
+    }
+    
     static func getAppPid() -> Int32{
         let application = XCTestWDSession.activeApplication()
         let pid = application?.processID
@@ -37,7 +41,7 @@ class XCTestWDFindElementUtils {
     // Routing for xpath, class name, name, id
     static func filterElements(usingText:String, withValue:String, underElement:XCUIElement, returnAfterFirstMatch:Bool) throws -> [XCUIElement]? {
         
-        let isSearchByIdentifier = (usingText == "name" || usingText == "id" || usingText == "accessibility id")
+        let isSearchByIdentifier = (usingText == "name" || usingText == "id" || usingText == "accessibility id" || usingText == "value")
         
         if usingText == "xpath" {
             return underElement.descendantsMatchingXPathQuery(xpathQuery: withValue,

@@ -437,13 +437,13 @@
 				TargetAttributes = {
 					63D408161EAB629400198736 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = UMK6KEYDD2;
+						DevelopmentTeam = M3KDMAPZ8B;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					63D4082A1EAB629400198736 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = UMK6KEYDD2;
+						DevelopmentTeam = M3KDMAPZ8B;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -736,13 +736,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UMK6KEYDD2;
+				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = XCTestWD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeq;
+				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeqd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XCTestWD/XCTestWD-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -757,13 +757,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = UMK6KEYDD2;
+				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = XCTestWD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeq;
+				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeqd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XCTestWD/XCTestWD-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -775,7 +775,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = UMK6KEYDD2;
+				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				GCC_PREPROCESSOR_DEFINITIONS = "XCTESTWD_PORT=$(XCTESTWD_PORT)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -786,7 +786,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee;
+				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "$(SDKROOT)/usr/include/libxml2";
@@ -802,7 +802,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = UMK6KEYDD2;
+				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				GCC_PREPROCESSOR_DEFINITIONS = "XCTESTWD_PORT=$(XCTESTWD_PORT)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -813,7 +813,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee;
+				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "$(SDKROOT)/usr/include/libxml2";

@@ -132,6 +132,14 @@ extension XCUIElement {
         return map
     }
     
+    func checkH5Page() -> Bool?{
+        if self.lastSnapshot == nil {
+            self.resolve()
+        }
+        let xpath = "//XCUIElementTypeStaticText"
+        //& //*[not(ancestor-or-self::XCUIElementTypeStatusBar)]"
+        return XCTestWDXPath.findMatchesH5Page(self.lastSnapshot, xpath)
+    }
     
     //MARK: element query
     func descendantsMatchingXPathQuery(xpathQuery:String, returnAfterFirstMatch:Bool) -> [XCUIElement]? {

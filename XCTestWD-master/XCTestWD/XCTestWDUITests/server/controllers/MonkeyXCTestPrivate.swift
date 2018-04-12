@@ -152,8 +152,7 @@ extension Monkey {
         }
     }
     
-    
-    public func addXCTestLoginAction(application:XCUIApplication) {
+    public func addXCTestQuitGamePlayPageAction(application:XCUIApplication) {
         addAction(){ [weak self] in
             do{
                 let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
@@ -161,18 +160,104 @@ extension Monkey {
                 if root == nil{
                     return
                 }
-                let usage = "xpath"
-                let username = "//XCUIElementTypeOther[@name='登录']/XCUIElementTypeTextField"
-                let passwd = "//XCUIElementTypeOther[@name='登录']/XCUIElementTypeSecureTextField"
-                let button = "//XCUIElementTypeOther[@name='登录']//XCUIElementTypeStaticText[@name='登录']"
+                let usage = "name"
+                let button = "返回"
+                let element = try? XCTestWDFindElementUtils.filterElement(usingText: usage, withvalue: button, underElement: root!)
+                if let element = element {
+                    if let element = element {
+                        NSLog("XCTestWDSetup->quit Game Play Page button find?\(String(describing: element))<-XCTestWDSetup")
+                        let rect = element.wdCenter()
+                        let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
+                        let locations = [point]
+                        let semaphore = DispatchSemaphore(value: 0)
+                        let numberOfTaps = 1
+                        //self!.sharedXCEventGenerator.pressAtPoint(point, forDuration: 0, orientation: orientationValue) {
+                        self!.sharedXCEventGenerator.tapAtTouchLocations(locations, numberOfTaps: UInt(numberOfTaps), orientation: orientationValue) {
+                            semaphore.signal()
+                        }
+                        semaphore.wait()
+                    }
+                    else{
+                        return
+                    }
+                }
+            }catch{
+                return
+            }
+        }
+        
+    }
+    
+    public func addXCTestQuitH5PageAction(application:XCUIApplication) {
+        addAction(){ [weak self] in
+            do{
+                let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
+                let root = session.application
+                if root == nil{
+                    return
+                }
+                let usage = "name"
+                let button = "返回"
+                let element = try? XCTestWDFindElementUtils.filterElement(usingText: usage, withvalue: button, underElement: root!)
+                if let element = element {
+                    if let element = element {
+                        NSLog("XCTestWDSetup->quit H5 Page button find?\(String(describing: element))<-XCTestWDSetup")
+                        let rect = element.wdCenter()
+                        _ = element.pageSourceToPoint()
+                        let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
+                        //let point = CGPoint(x:256,y:443)
+                        let locations = [point]
+                        let semaphore = DispatchSemaphore(value: 0)
+                        let numberOfTaps = 1
+                        //self!.sharedXCEventGenerator.pressAtPoint(point, forDuration: 0, orientation: orientationValue) {
+                        self!.sharedXCEventGenerator.tapAtTouchLocations(locations, numberOfTaps: UInt(numberOfTaps), orientation: orientationValue) {
+                            semaphore.signal()
+                        }
+                        semaphore.wait()
+                    }
+                    else{
+                        return
+                    }
+                }
+            }catch{
+                return
+            }
+        }
+        
+    }
+    
+    public func addXCTestLoginAction(element:XCUIElement, application:XCUIApplication) {
+        addAction(){ [weak self] in
+            do{
+                let rect = element.wdCenter()
+                let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
+                let locations = [point]
+                let semaphore = DispatchSemaphore(value: 0)
+                let numberOfTaps = 1
+                //self!.sharedXCEventGenerator.pressAtPoint(point, forDuration: 0, orientation: orientationValue) {
+                self!.sharedXCEventGenerator.tapAtTouchLocations(locations, numberOfTaps: UInt(numberOfTaps), orientation: orientationValue) {
+                            semaphore.signal()
+                }
+                semaphore.wait()
                 
-                var element = try? XCTestWDFindElementUtils.filterElement(usingText: usage, withvalue: username, underElement: root!)
+                let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
+                let root = session.application
+                if root == nil{
+                    return
+                }
+                let usage1 = "value"
+                let usage2 = "name"
+                let username = "QQ号/手机号/邮箱登录"
+                let passwd = "密码"
+                let button = "登录"
+                //let cgy = try? XCTestWDFindElementUtils.tree(underElement: root!)
+                var element = try? XCTestWDFindElementUtils.filterElement(usingText: usage1, withvalue: username, underElement: root!)
                 
                 if let element = element {
                     if let element = element {
                         
                         NSLog("XCTestWDSetup->loginuser find?\(String(describing: element))<-XCTestWDSetup")
-                        let value = "1111111111"
+                        let value = "3400566488"
                         let rect = element.wdRect()
                         let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
                         let locations = [point]
@@ -191,16 +276,13 @@ extension Monkey {
                         }
                         semaphore.wait()
                     }
-                    else{
-                        return
-                    }
                 }
                 
-                element = try? XCTestWDFindElementUtils.filterElement(usingText: usage, withvalue: passwd, underElement: root!)
+                element = try? XCTestWDFindElementUtils.filterElement(usingText: usage1, withvalue: passwd, underElement: root!)
                 if let element = element {
                     if let element = element {
                         NSLog("XCTestWDSetup->passwd find?\(String(describing: element))<-XCTestWDSetup")
-                        let value = "111111"
+                        let value = "123456789OO"
                         let rect = element.wdRect()
                         let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
                         let locations = [point]
@@ -219,16 +301,13 @@ extension Monkey {
                         }
                         semaphore.wait()
                     }
-                    else{
-                        return
-                    }
                 }
                 
-                element = try? XCTestWDFindElementUtils.filterElement(usingText: usage, withvalue: button, underElement: root!)
+                element = try? XCTestWDFindElementUtils.filterElement(usingText: usage2, withvalue: button, underElement: root!)
                 if let element = element {
                     if let element = element {
                         NSLog("XCTestWDSetup->login button find?\(String(describing: element))<-XCTestWDSetup")
-                        let rect = element.wdRect()
+                        let rect = element.wdCenter()
                         let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
                         let locations = [point]
                         let semaphore = DispatchSemaphore(value: 0)

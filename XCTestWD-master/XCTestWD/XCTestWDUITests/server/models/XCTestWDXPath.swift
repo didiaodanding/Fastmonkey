@@ -76,6 +76,28 @@ internal class XCTestWDXPath {
         return results
     }
     
+    static func findMatchesH5Page(_ root:XCElementSnapshot, _ xpathQuery:String) -> Bool? {
+        
+        var mapping = [String:XCElementSnapshot]()
+        let documentXml = generateXMLPresentation(root,
+                                                  nil,
+                                                  nil,
+                                                  defaultTopDir,
+                                                  &mapping)?.xml
+        
+        if documentXml == nil {
+            return nil
+        }
+        let document = try? XMLDocument(string: documentXml!, encoding:String.Encoding.utf8)
+        let nodes = document?.xpath(xpathQuery)
+        for node in nodes! {
+            if node.attr("name") != nil && node.attr("name")!.contains("网页由"){
+                return true
+            }
+        }
+        return false
+    }
+    
     //MARK: Internal Utils
     static func generateXMLPresentation(_ root:XCElementSnapshot, _ parentElement:AEXMLElement?, _ writingDocument:AEXMLDocument?, _ indexPath:String, _ mapping: inout [String:XCElementSnapshot]) -> AEXMLDocument? {
         
