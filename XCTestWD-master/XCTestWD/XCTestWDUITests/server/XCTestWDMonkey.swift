@@ -12,8 +12,7 @@ public class XCTestWDMonkey {
 
     func startMonkey() -> Int {
         
-        let bundleID = "com.tencent."
-        //let bundleID = "com.pandatv.test.meizi"
+        let bundleID = "com.tencent.microvision.dailybuild"
 
         var app : XCUIApplication!
         var session : XCTestWDSession!
@@ -36,12 +35,12 @@ public class XCTestWDMonkey {
 
         _ = app.descendants(matching: .any).element(boundBy: 0).frame
         let monkey = Monkey(frame: app.frame)
-        monkey.addXCTestAppLogin(interval: 10, application: app)
-        monkey.addXCTestAppQuiteH5Page(interval: 5, application: app)
-        monkey.addXCTestAppQuiteGamePlayPage(interval: 10, application: app)
         monkey.addDefaultXCTestPrivateActions()
         monkey.addXCTestTapAlertAction(interval: 100, application: app)
         monkey.addXCTestCheckCurrentApp(interval: 10, application: app)
+//        monkey.addXCTestAppLogin(application: app)
+//        monkey.addXCTestAppQuiteH5Page(interval: 30, application: app)
+//        monkey.addXCTestAppQuiteGamePlayPage(interval: 30, application: app)
         monkey.monkeyAround()
         RunLoop.main.run()
         return 0

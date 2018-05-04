@@ -409,7 +409,6 @@
 			buildConfigurationList = 63D408371EAB629400198736 /* Build configuration list for PBXNativeTarget "XCTestWDUITests" */;
 			buildPhases = (
 				7FA43F311F0CB57400FB2332 /* ShellScript */,
-				7F6C3B601EFCD8AB00F53D6B /* ShellScript */,
 				63D408271EAB629400198736 /* Sources */,
 				63D408281EAB629400198736 /* Frameworks */,
 				63D408291EAB629400198736 /* Resources */,
@@ -523,19 +522,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		7F6C3B601EFCD8AB00F53D6B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "";
-		};
 		7FA43F311F0CB57400FB2332 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,7 +533,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#Check about simulator\ncount=`xcrun simctl list | grep Booted | wc -l | sed -e 's/ //g'`\nif [ $count -gt 0 ]; then\nxcrun simctl uninstall booted com.apple.test.XCTestWDUITests-Runner\nfi\n\n# Check about iOS device\ndeviceConnected=$(idevice_id -l)\necho $deviceConnected\nif [ ${#deviceConnected} -gt 0 ]; then\n    ideviceinstaller -U com.apple.test.XCTestWDUITests-Runner\nfi";
+			shellScript = "#Check about simulator\ncount=`xcrun simctl list | grep Booted | wc -l | sed -e 's/ //g'`\nif [ $count -gt 0 ]; then\nxcrun simctl uninstall booted com.apple.test.XCTestWDUITests-Runner\nfi\n\n# Check about iOS device\n#deviceConnected=$(idevice_id -l)\n#echo $deviceConnected\n#if [ ${#deviceConnected} -gt 0 ]; then\n#ideviceinstaller -U com.apple.test.XCTestWDUITests-Runner\n#fi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -735,6 +721,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
@@ -742,8 +730,9 @@
 				INFOPLIST_FILE = XCTestWD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeqd;
+				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeqdedwa231;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "XCTestWD/XCTestWD-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -756,6 +745,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
@@ -763,8 +754,9 @@
 				INFOPLIST_FILE = XCTestWD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeqd;
+				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeqdedwa231;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "XCTestWD/XCTestWD-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -775,6 +767,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				GCC_PREPROCESSOR_DEFINITIONS = "XCTESTWD_PORT=$(XCTESTWD_PORT)";
 				HEADER_SEARCH_PATHS = (
@@ -786,9 +780,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee1;
+				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee1edddzzv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				SWIFT_OBJC_BRIDGING_HEADER = "XCTestWDUITests/XCTestWDUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -802,6 +797,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				GCC_PREPROCESSOR_DEFINITIONS = "XCTESTWD_PORT=$(XCTESTWD_PORT)";
 				HEADER_SEARCH_PATHS = (
@@ -813,9 +810,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee1;
+				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee1edddzzv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				SWIFT_OBJC_BRIDGING_HEADER = "XCTestWDUITests/XCTestWDUITests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

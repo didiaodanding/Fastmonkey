@@ -251,24 +251,25 @@ extension Monkey {
                 let passwd = "密码"
                 let button = "登录"
                 //let cgy = try? XCTestWDFindElementUtils.tree(underElement: root!)
-                var element = try? XCTestWDFindElementUtils.filterElement(usingText: usage1, withvalue: username, underElement: root!)
+                var element1 = try? XCTestWDFindElementUtils.filterElement(usingText: usage1, withvalue: username, underElement: root!)
                 
-                if let element = element {
-                    if let element = element {
+                if let element1 = element1 {
+                    if let element1 = element1 {
                         
                         NSLog("XCTestWDSetup->loginuser find?\(String(describing: element))<-XCTestWDSetup")
-                        let value = "3400566488"
-                        let rect = element.wdRect()
+                        let username_value = ""
+                        let rect = element1.wdCenter()
                         let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
                         let locations = [point]
                         let semaphore = DispatchSemaphore(value: 0)
                         let numberOfTaps = 1
+                        self?.sleep(1)
                         self!.sharedXCEventGenerator.tapAtTouchLocations(locations, numberOfTaps: UInt(numberOfTaps), orientation: orientationValue) {
                             semaphore.signal()
                         }
                         semaphore.wait()
                         self?.sleep(1)
-                        XCTestDaemonsProxy.testRunnerProxy()._XCT_send(value, maximumFrequency: 60) { (error) in
+                        XCTestDaemonsProxy.testRunnerProxy()._XCT_send(username_value, maximumFrequency: 60) { (error) in
                             semaphore.signal()
                             if error != nil {
                                 NSLog("Error occured in sending key: \(error.debugDescription)")
@@ -278,12 +279,12 @@ extension Monkey {
                     }
                 }
                 
-                element = try? XCTestWDFindElementUtils.filterElement(usingText: usage1, withvalue: passwd, underElement: root!)
-                if let element = element {
-                    if let element = element {
+                element1 = try? XCTestWDFindElementUtils.filterElement(usingText: usage1, withvalue: passwd, underElement: root!)
+                if let element1 = element1 {
+                    if let element1 = element1 {
                         NSLog("XCTestWDSetup->passwd find?\(String(describing: element))<-XCTestWDSetup")
-                        let value = "123456789OO"
-                        let rect = element.wdRect()
+                        let password_value = ""
+                        let rect = element1.wdRect()
                         let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
                         let locations = [point]
                         let semaphore = DispatchSemaphore(value: 0)
@@ -293,7 +294,7 @@ extension Monkey {
                         }
                         semaphore.wait()
                         self?.sleep(1)
-                        XCTestDaemonsProxy.testRunnerProxy()._XCT_send(value, maximumFrequency: 60) { (error) in
+                        XCTestDaemonsProxy.testRunnerProxy()._XCT_send(password_value, maximumFrequency: 60) { (error) in
                             semaphore.signal()
                             if error != nil {
                                 NSLog("Error occured in sending key: \(error.debugDescription)")
@@ -303,11 +304,11 @@ extension Monkey {
                     }
                 }
                 
-                element = try? XCTestWDFindElementUtils.filterElement(usingText: usage2, withvalue: button, underElement: root!)
-                if let element = element {
-                    if let element = element {
+                element1 = try? XCTestWDFindElementUtils.filterElement(usingText: usage2, withvalue: button, underElement: root!)
+                if let element1 = element1 {
+                    if let element1 = element1 {
                         NSLog("XCTestWDSetup->login button find?\(String(describing: element))<-XCTestWDSetup")
-                        let rect = element.wdCenter()
+                        let rect = element1.wdCenter()
                         let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
                         let locations = [point]
                         let semaphore = DispatchSemaphore(value: 0)

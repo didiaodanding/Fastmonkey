@@ -88,8 +88,11 @@ internal class XCTestWDSession {
         if pid != currentprocessID{
             throw OperationError.Error
         }
-        
-        self._application?.resolve()
+        if self._application.state != XCUIApplication.State.runningForeground{
+            self._application?.activate()
+            usleep(UInt32(5000000.0))
+            self._application?.resolve()
+        }
         
     }
 }

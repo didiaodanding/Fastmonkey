@@ -23,6 +23,9 @@
 
 +(XCUIApplication*)createByPID:(pid_t)pid
 {
+    if (pid == 0){
+        return nil;
+    }
     if([XCUIApplication respondsToSelector:@selector(appWithPID:)]){
         return [XCUIApplication appWithPID:pid];
     }

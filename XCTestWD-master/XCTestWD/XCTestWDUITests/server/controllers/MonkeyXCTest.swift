@@ -94,8 +94,8 @@ extension Monkey {
      if find key point, take login event
      */
 
-    public func addXCTestAppLogin(interval:Int, application:XCUIApplication) {
-        addAction(interval:interval){ [weak self] in
+    public func addXCTestAppLogin(application:XCUIApplication) {
+        addAction(){ [weak self] in
             do{
                 let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
                 let root = session.application
