@@ -47,9 +47,11 @@ extension Monkey {
                 for i in 0 ..< application.alerts.count {
                     let alert = application.alerts.element(boundBy: i)
                     let buttons = alert.descendants(matching: .button)
-                    let index = UInt(self!.r.randomUInt32() % UInt32(buttons.count))
-                    let button = buttons.element(boundBy: index)
-                    button.tap()
+                    if(UInt32(buttons.count) != 0){
+                        let index = UInt(self!.r.randomUInt32() % UInt32(buttons.count))
+                        let button = buttons.element(boundBy: index)
+                        button.tap()
+                    }
                 }
             }else{
                 application.activate()
