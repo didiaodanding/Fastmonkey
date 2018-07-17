@@ -9,10 +9,15 @@
 #import "XCAXClient_iOS.h"
 
 @implementation XCTestWDApplication
-
+id activeApplicationElement;
 +(XCUIApplication*)activeApplication
 {
-    id activeApplicationElement = ((NSArray*)[[XCAXClient_iOS sharedClient] activeApplications]).lastObject;
+    @try{
+        activeApplicationElement = ((NSArray*)[[XCAXClient_iOS sharedClient] activeApplications]).lastObject;
+    }@catch (NSException* e){
+        NSLog(@"%@", e);
+        activeApplicationElement = nil;
+    }
     if(!activeApplicationElement){
         activeApplicationElement = ((XCAXClient_iOS*)[XCAXClient_iOS sharedClient]).systemApplication;
     }
