@@ -22,6 +22,9 @@ id activeApplicationElement;
         activeApplicationElement = ((XCAXClient_iOS*)[XCAXClient_iOS sharedClient]).systemApplication;
     }
     XCUIApplication* application = [XCTestWDApplication createByPID:[[activeApplicationElement valueForKey:@"processIdentifier"] intValue]];
+    if (application.state != XCUIApplicationStateRunningForeground) {
+        application = [[XCUIApplication alloc] initPrivateWithPath:nil bundleID:@"com.apple.springboard"];
+    }
     [application query];
     return application;
 }
