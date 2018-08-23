@@ -1,0 +1,27 @@
+{
+  "Mac" : [
+    {
+      "name" : "AEXML",
+      "hash" : "6abce90a40d0c694dc00044b0ce93dd51c4a7908922584c51dcab7f717c1ea8c"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "AEXML",
+      "hash" : "bd4acc21cbe5e7f11555ef332630d5c9380de58cd52a5acebf889a724bc9b11c"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "AEXML",
+      "hash" : "a900115775a93b691e8a123370d992ea7ac398599629624045f1de2edf665a38"
+    }
+  ],
+  "commitish" : "4.3.0",
+  "iOS" : [
+    {
+      "name" : "AEXML",
+      "hash" : "1ac2e1faf3e5c103b4d3762db78b46fd3d0587d26870a979ea0cf05de2b53769"
+    }
+  ]
+}
