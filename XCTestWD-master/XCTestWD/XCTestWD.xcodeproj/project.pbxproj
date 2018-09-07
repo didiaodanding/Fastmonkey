@@ -10,7 +10,6 @@
 		138D4F53207B3E5900541495 /* XCTestWDMonkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138D4F52207B3E5900541495 /* XCTestWDMonkey.swift */; };
 		138D4F56207B3E6B00541495 /* XCTestWDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 138D4F54207B3E6B00541495 /* XCTestWDApplication.m */; };
 		138D4F57207B3E6B00541495 /* XCTestWDApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 138D4F55207B3E6B00541495 /* XCTestWDApplication.h */; };
-		22AC58421F42E0BE006F85D7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22AC58021F42E0BE006F85D7 /* Info.plist */; };
 		22AC58431F42E0BE006F85D7 /* CDStructures.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AC58041F42E0BE006F85D7 /* CDStructures.h */; };
 		22AC58441F42E0BE006F85D7 /* XCAccessibilityElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AC58051F42E0BE006F85D7 /* XCAccessibilityElement.h */; };
 		22AC58451F42E0BE006F85D7 /* XCAXClient_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AC58061F42E0BE006F85D7 /* XCAXClient_iOS.h */; };
@@ -83,6 +82,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13239F9021429DF200F79A0A /* GLToolsExpert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsExpert.framework; sourceTree = "<group>"; };
+		13239F9121429DF200F79A0A /* GLToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsMobileFoundation.framework; sourceTree = "<group>"; };
+		13239F9221429DF200F79A0A /* GPUToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileFoundation.framework; sourceTree = "<group>"; };
+		13239F9321429DF200F79A0A /* GPUToolsMobileKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileKit.framework; sourceTree = "<group>"; };
+		13239F9421429DF200F79A0A /* GXTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GXTools.framework; sourceTree = "<group>"; };
+		13239F9521429DF200F79A0A /* XCTAutomationSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTAutomationSupport.framework; sourceTree = "<group>"; };
+		13239F9721429DF800F79A0A /* GLToolsExpert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsExpert.framework; sourceTree = "<group>"; };
+		13239F9821429DF800F79A0A /* GLToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsMobileFoundation.framework; sourceTree = "<group>"; };
+		13239F9921429DF800F79A0A /* GPUToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileFoundation.framework; sourceTree = "<group>"; };
+		13239F9A21429DF800F79A0A /* GPUToolsMobileKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileKit.framework; sourceTree = "<group>"; };
+		13239F9B21429DF800F79A0A /* GXTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GXTools.framework; sourceTree = "<group>"; };
+		13239F9C21429DF800F79A0A /* XCTAutomationSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTAutomationSupport.framework; sourceTree = "<group>"; };
+		13239F9E21429DFA00F79A0A /* GLToolsExpert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsExpert.framework; sourceTree = "<group>"; };
+		13239F9F21429DFA00F79A0A /* GLToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsMobileFoundation.framework; sourceTree = "<group>"; };
+		13239FA021429DFA00F79A0A /* GPUToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileFoundation.framework; sourceTree = "<group>"; };
+		13239FA121429DFA00F79A0A /* GPUToolsMobileKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileKit.framework; sourceTree = "<group>"; };
+		13239FA221429DFA00F79A0A /* GXTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GXTools.framework; sourceTree = "<group>"; };
+		13239FA321429DFA00F79A0A /* XCTAutomationSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTAutomationSupport.framework; sourceTree = "<group>"; };
 		138D4F52207B3E5900541495 /* XCTestWDMonkey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestWDMonkey.swift; sourceTree = "<group>"; };
 		138D4F54207B3E6B00541495 /* XCTestWDApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTestWDApplication.m; sourceTree = "<group>"; };
 		138D4F55207B3E6B00541495 /* XCTestWDApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTestWDApplication.h; sourceTree = "<group>"; };
@@ -184,6 +201,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13239F8F21429DF200F79A0A /* PrivateFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13239F9021429DF200F79A0A /* GLToolsExpert.framework */,
+				13239F9121429DF200F79A0A /* GLToolsMobileFoundation.framework */,
+				13239F9221429DF200F79A0A /* GPUToolsMobileFoundation.framework */,
+				13239F9321429DF200F79A0A /* GPUToolsMobileKit.framework */,
+				13239F9421429DF200F79A0A /* GXTools.framework */,
+				13239F9521429DF200F79A0A /* XCTAutomationSupport.framework */,
+			);
+			name = PrivateFrameworks;
+			path = Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks;
+			sourceTree = DEVELOPER_DIR;
+		};
+		13239F9621429DF800F79A0A /* PrivateFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13239F9721429DF800F79A0A /* GLToolsExpert.framework */,
+				13239F9821429DF800F79A0A /* GLToolsMobileFoundation.framework */,
+				13239F9921429DF800F79A0A /* GPUToolsMobileFoundation.framework */,
+				13239F9A21429DF800F79A0A /* GPUToolsMobileKit.framework */,
+				13239F9B21429DF800F79A0A /* GXTools.framework */,
+				13239F9C21429DF800F79A0A /* XCTAutomationSupport.framework */,
+			);
+			name = PrivateFrameworks;
+			path = Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks;
+			sourceTree = DEVELOPER_DIR;
+		};
+		13239F9D21429DFA00F79A0A /* PrivateFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13239F9E21429DFA00F79A0A /* GLToolsExpert.framework */,
+				13239F9F21429DFA00F79A0A /* GLToolsMobileFoundation.framework */,
+				13239FA021429DFA00F79A0A /* GPUToolsMobileFoundation.framework */,
+				13239FA121429DFA00F79A0A /* GPUToolsMobileKit.framework */,
+				13239FA221429DFA00F79A0A /* GXTools.framework */,
+				13239FA321429DFA00F79A0A /* XCTAutomationSupport.framework */,
+			);
+			name = PrivateFrameworks;
+			path = Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks;
+			sourceTree = DEVELOPER_DIR;
+		};
 		22AC58031F42E0BE006F85D7 /* PrivateHeaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +402,9 @@
 		63D4083A1EAB62D500198736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13239F8F21429DF200F79A0A /* PrivateFrameworks */,
+				13239F9621429DF800F79A0A /* PrivateFrameworks */,
+				13239F9D21429DFA00F79A0A /* PrivateFrameworks */,
 				22AC58A31F42E5EE006F85D7 /* libxml2.2.tbd */,
 				7FD799771EBC15D70053C4D2 /* Foundation.framework */,
 				7F2214861EB1CB6E006D706F /* libxml2.tbd */,
@@ -436,15 +498,15 @@
 				TargetAttributes = {
 					63D408161EAB629400198736 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = M3KDMAPZ8B;
+						DevelopmentTeam = 4VF27RM3Z2;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					63D4082A1EAB629400198736 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = M3KDMAPZ8B;
+						DevelopmentTeam = 4VF27RM3Z2;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -483,7 +545,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22AC58421F42E0BE006F85D7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +581,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		7FA43F311F0CB57400FB2332 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -533,7 +594,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#Check about simulator\ncount=`xcrun simctl list | grep Booted | wc -l | sed -e 's/ //g'`\nif [ $count -gt 0 ]; then\nxcrun simctl uninstall booted com.apple.test.XCTestWDUITests-Runner\nfi\n\n# Check about iOS device\n#deviceConnected=$(idevice_id -l)\n#echo $deviceConnected\n#if [ ${#deviceConnected} -gt 0 ]; then\n#ideviceinstaller -U com.apple.test.XCTestWDUITests-Runner\n#fi";
+			shellScript = "#Check about simulator\ncount=`xcrun simctl list | grep Booted | wc -l | sed -e 's/ //g'`\nif [ $count -gt 0 ]; then\nxcrun simctl uninstall booted com.apple.test.XCTestWDUITests-Runner\nfi\n\n# Check about iOS device\n#deviceConnected=$(idevice_id -l)\n#echo $deviceConnected\n#if [ ${#deviceConnected} -gt 0 ]; then\n#ideviceinstaller -U com.apple.test.XCTestWDUITests-Runner\n#fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -721,18 +782,21 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: tedliu.tencent@gmail.com (F6BVKFA43D)";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = M3KDMAPZ8B;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
+				DEVELOPMENT_TEAM = 4VF27RM3Z2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../Carthage/Build/iOS",
+					"$(PLATFORM_DIR)/Developer/Library/PrivateFrameworks",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = XCTestWD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDeeqdedwa231;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = QzoneWildcardNew;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -746,10 +810,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = M3KDMAPZ8B;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../Carthage/Build/iOS",
+					"$(PLATFORM_DIR)/Developer/Library/PrivateFrameworks",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = XCTestWD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -767,9 +834,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M3KDMAPZ8B;
+				CODE_SIGN_IDENTITY = "iPhone Developer: tedliu.tencent@gmail.com (F6BVKFA43D)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4VF27RM3Z2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../Carthage/Build/iOS",
+					"$(PLATFORM_DIR)/Developer/Library/PrivateFrameworks",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "XCTESTWD_PORT=$(XCTESTWD_PORT)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -779,15 +850,20 @@
 				INFOPLIST_FILE = XCTestWDUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-framework",
+					XCTAutomationSupport,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee1edddzzv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = QzoneWildcardNew;
 				SWIFT_INCLUDE_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				SWIFT_OBJC_BRIDGING_HEADER = "XCTestWDUITests/XCTestWDUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				XCTESTWD_PORT = 8001;
 			};
 			name = Debug;
@@ -798,8 +874,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M3KDMAPZ8B;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../Carthage/Build/iOS",
+					"$(PLATFORM_DIR)/Developer/Library/PrivateFrameworks",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "XCTESTWD_PORT=$(XCTESTWD_PORT)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -809,7 +889,11 @@
 				INFOPLIST_FILE = XCTestWDUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-framework",
+					XCTAutomationSupport,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = XCTestWD.XCTestWDUITestsee1edddzzv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -817,6 +901,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				SWIFT_OBJC_BRIDGING_HEADER = "XCTestWDUITests/XCTestWDUITests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				XCTESTWD_PORT = 8001;
 			};
 			name = Release;
