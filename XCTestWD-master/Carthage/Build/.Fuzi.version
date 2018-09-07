@@ -1,27 +1,9 @@
 {
-  "Mac" : [
-    {
-      "name" : "Fuzi",
-      "hash" : "f777a944c3f19df30e763eb8f9bde269d782f9b6651714ed61ec444a7b745a86"
-    }
-  ],
-  "watchOS" : [
-    {
-      "name" : "Fuzi",
-      "hash" : "5283699354cfff7e1b58e2e405d8db697870b2f4b63e61bce3c765f57c883341"
-    }
-  ],
-  "tvOS" : [
-    {
-      "name" : "Fuzi",
-      "hash" : "2aee183f3c9d3a171bb3b469ec83b54c2e5d69fbafd79ee1f76548ab2f86f013"
-    }
-  ],
   "commitish" : "2.0.2",
   "iOS" : [
     {
       "name" : "Fuzi",
-      "hash" : "175979cee0948cabdb97c781e6427b8509d5f88e8433aa13b88f800a46791056"
+      "hash" : "37ff77612ae0855e23875d6d2b3ac896967a06d2c73784ea780b52a906cbcfcc"
     }
   ]
 }
