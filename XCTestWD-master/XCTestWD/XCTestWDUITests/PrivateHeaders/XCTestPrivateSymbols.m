@@ -32,8 +32,8 @@ __attribute__((constructor)) void LoadXCTestSymbols(void)
   XCAXAIsVisibleAttribute = accessibilityAttributes[0];
   XCAXAIsElementAttribute = accessibilityAttributes[1];
 
-  NSCAssert(XCAXAIsVisibleAttribute != nil , @"Failed to retrieve FB_XCAXAIsVisibleAttribute", XCAXAIsVisibleAttribute);
-  NSCAssert(XCAXAIsElementAttribute != nil , @"Failed to retrieve FB_XCAXAIsElementAttribute", XCAXAIsElementAttribute);
+  NSCAssert(XCAXAIsVisibleAttribute != nil , @"Failed to retrieve XCAXAIsVisibleAttribute", XCAXAIsVisibleAttribute);
+  NSCAssert(XCAXAIsElementAttribute != nil , @"Failed to retrieve XCAXAIsElementAttribute", XCAXAIsElementAttribute);
 }
 
 void *RetrieveXCTestSymbol(const char *name)

@@ -1,9 +1,9 @@
 {
-  "commitish" : "1.3.3",
+  "commitish" : "b366f5ed088d9d0d216a9ce18ec726f7912c30f3",
   "iOS" : [
     {
       "name" : "Swifter",
-      "hash" : "3ad2a57337706045c850e3768cdfed8ab7a07e68e51d125e9fbc7e9cc6206a04"
+      "hash" : "b0b18a520369ef280c0ece50456b6e25d9fdc3891982957d75c62ed377545d8e"
     }
   ]
 }

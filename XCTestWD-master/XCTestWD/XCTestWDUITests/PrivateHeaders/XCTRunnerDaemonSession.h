@@ -5,23 +5,24 @@
 //
 
 #import "XCTestManager_TestsInterface-Protocol.h"
+#import "XCEventGenerator.h"
 #import "CDStructures.h"
 #import <UIKit/UIKit.h>
 
-@class NSMutableDictionary, NSXPCConnection;
-@protocol XCTUIApplicationMonitor, XCTAXClient;
+@class NSMutableDictionary, NSXPCConnection, XCSynthesizedEventRecord;
+@protocol XCTUIApplicationMonitor, XCTAXClient, XCTestManager_ManagerInterface;
 
 // iOS since 10.3
 @interface XCTRunnerDaemonSession : NSObject <XCTestManager_TestsInterface>
 {
-    NSObject *_queue;
+    //NSObject<OS_dispatch_queue> *_queue;
     id <XCTUIApplicationMonitor> _applicationMonitor;
     id <XCTAXClient> _accessibilityClient;
     NSXPCConnection *_connection;
     unsigned long long _daemonProtocolVersion;
     NSMutableDictionary *_invalidationHandlers;
 }
-@property(retain) NSObject *queue; // @synthesize queue=_queue;
+//@property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property id <XCTAXClient> accessibilityClient; // @synthesize accessibilityClient=_accessibilityClient;
 @property id <XCTUIApplicationMonitor> applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
 @property(retain) NSMutableDictionary *invalidationHandlers; // @synthesize invalidationHandlers=_invalidationHandlers;
@@ -44,7 +45,7 @@
 - (void)sendString:(id)arg1 maximumFrequency:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateDeviceOrientation:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performDeviceEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)synthesizeEvent:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)synthesizeEvent:(XCSynthesizedEventRecord *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)requestElementAtPoint:(CGPoint)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)fetchParameterizedAttributeForElement:(id)arg1 attribute:(id)arg2 parameter:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)setAttribute:(id)arg1 value:(id)arg2 element:(id)arg3 reply:(CDUnknownBlockType)arg4;

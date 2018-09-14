@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CDStructures.h"
 
 #import <XCTest/XCUIElementAttributes.h>
+#import "CDStructures.h"
 
 @class NSArray, NSDictionary, NSString, XCAccessibilityElement, XCUIApplication;
 
@@ -62,14 +62,11 @@
 @property(readonly, copy) NSArray *identifiers;
 @property(nonatomic) unsigned long long generation; // @synthesize generation=_generation;
 @property(nonatomic) XCUIApplication *application; // @synthesize application=_application;
-@property(readonly) struct CGPoint hitPointForScrolling;
-@property(readonly) struct CGPoint hitPoint;
 
 - (id)_uniquelyIdentifyingObjectiveCCode;
 - (id)_uniquelyIdentifyingSwiftCode;
 - (BOOL)_isAncestorOfElement:(id)arg1;
 - (BOOL)_isDescendantOfElement:(id)arg1;
-- (id)rootElement;
 - (BOOL)_frameFuzzyMatchesElement:(id)arg1;
 - (BOOL)_fuzzyMatchesElement:(id)arg1;
 - (BOOL)_matchesElement:(id)arg1;
@@ -86,5 +83,10 @@
 - (struct CGPoint)hostingAndOrientationTransformedPoint:(struct CGPoint)arg1;
 - (struct CGPoint)_transformPoint:(struct CGPoint)arg1 windowContextID:(id)arg2 windowDisplayID:(id)arg3;
 - (id)hitTest:(struct CGPoint)arg1;
+
+- (XCElementSnapshot *)_rootElement;
+- (XCElementSnapshot *)rootElement;
+
+@property(readonly) struct CGPoint hitPoint;
 
 @end

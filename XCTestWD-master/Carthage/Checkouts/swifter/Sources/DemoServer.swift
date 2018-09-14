@@ -36,7 +36,7 @@ public func demoServer(_ publicDir: String) -> HttpServer {
         scopes {
             html {
                 body {
-                    h3 { inner = "Address: \(r.address)" }
+                    h3 { inner = "Address: \(r.address ?? "unknown")" }
                     h3 { inner = "Url: \(r.path)" }
                     h3 { inner = "Method: \(r.method)" }
                     
@@ -95,7 +95,8 @@ public func demoServer(_ publicDir: String) -> HttpServer {
     server.POST["/upload"] = { r in
         var response = ""
         for multipart in r.parseMultiPartFormData() {
-            response += "Name: \(multipart.name) File name: \(multipart.fileName) Size: \(multipart.body.count)<br>"
+            guard let name = multipart.name, let fileName = multipart.fileName else { continue }
+            response += "Name: \(name) File name: \(fileName) Size: \(multipart.body.count)<br>"
         }
         return HttpResponse.ok(.html(response))
     }
@@ -179,14 +180,17 @@ public func demoServer(_ publicDir: String) -> HttpServer {
         session.writeText(text)
         }, { (session, binary) in
         session.writeBinary(binary)
-    })
+        }, { (session, pong) in
+        // Got a pong frame
+        }
+    )
     
     server.notFoundHandler = { r in
         return .movedPermanently("https://github.com/404")
     }
     
     server.middleware.append { r in
-        print("Middleware: \(r.address) -> \(r.method) -> \(r.path)")
+        print("Middleware: \(r.address ?? "unknown address") -> \(r.method) -> \(r.path)")
         return nil
     }
     

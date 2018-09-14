@@ -21,14 +21,14 @@ extension XCUIElement {
     
     func wdValue() -> Any! {
         var value = self.value
-        if self.elementType == XCUIElementType.staticText {
+        if self.elementType == XCUIElement.ElementType.staticText {
             if self.value != nil {
                 value = self.value
             } else {
                 value = self.label
             }
         }
-        if self.elementType == XCUIElementType.button {
+        if self.elementType == XCUIElement.ElementType.button {
             if let temp = self.value {
                 if ((temp as? String)?.characters.count) ?? 0 > 0 {
                     value = self.value
@@ -39,12 +39,12 @@ extension XCUIElement {
                 value = self.isSelected
             }
         }
-        if self.elementType == XCUIElementType.switch {
+        if self.elementType == XCUIElement.ElementType.switch {
             value = (self.value as! NSString).doubleValue > 0
         }
-        if self.elementType == XCUIElementType.textField ||
-            self.elementType == XCUIElementType.textView ||
-            self.elementType == XCUIElementType.secureTextField {
+        if self.elementType == XCUIElement.ElementType.textField ||
+            self.elementType == XCUIElement.ElementType.textView ||
+            self.elementType == XCUIElement.ElementType.secureTextField {
             if let temp = self.value {
                 if let str = temp as? String {
                     if str.characters.count > 0 {
@@ -64,7 +64,7 @@ extension XCUIElement {
     }
     
     func wdLabel() -> String {
-        if self.elementType == XCUIElementType.textField {
+        if self.elementType == XCUIElement.ElementType.textField {
             return self.label
         } else if self.label.characters.count > 0 {
             return self.label
@@ -158,12 +158,12 @@ extension XCUIElement {
             matchSnapShots = [matchSnapShots!.first!]
         }
         
-        var matchingTypes = Set<XCUIElementType>()
+        var matchingTypes = Set<XCUIElement.ElementType>()
         for snapshot in matchSnapShots! {
             matchingTypes.insert(XCUIElementTypeTransformer.singleton.elementTypeWithTypeName(snapshot.wdType()))
         }
         
-        var map = [XCUIElementType:[XCUIElement]]()
+        var map = [XCUIElement.ElementType:[XCUIElement]]()
         for type in matchingTypes {
             let descendantsOfType = self.descendants(matching: type).allElementsBoundByIndex
             map[type] = descendantsOfType
@@ -199,7 +199,7 @@ extension XCUIElement {
             }
         }
         
-        let query = self.descendants(matching: XCUIElementType.any).matching(identifier: accessibilityId);
+        let query = self.descendants(matching: XCUIElement.ElementType.any).matching(identifier: accessibilityId);
         result.append(contentsOf: XCUIElement.extractMatchElementFromQuery(query: query, returnAfterFirstMatch: returnAfterFirstMatch))
         
         return result
@@ -209,7 +209,7 @@ extension XCUIElement {
         var result = [XCUIElement]()
         
         let type = XCUIElementTypeTransformer.singleton.elementTypeWithTypeName(className)
-        if self.elementType == type || type == XCUIElementType.any {
+        if self.elementType == type || type == XCUIElement.ElementType.any {
             result.append(self);
             if returnAfterFirstMatch {
                 return result
@@ -310,7 +310,7 @@ extension XCUIElement {
         info["value"] = snapshot.wdValue() as AnyObject? ?? nil
         info["label"] = snapshot.wdLabel() as AnyObject? ?? nil
         info["rect"] = snapshot.wdRect() as AnyObject
-        info["frame"] = NSStringFromCGRect(snapshot.wdFrame()) as AnyObject
+        info["frame"] = NSCoder.string(for: snapshot.wdFrame()) as AnyObject
         info["isEnabled"] = snapshot.isWDEnabled() as AnyObject
         info["isVisible"] = snapshot.isWDEnabled() as AnyObject
         
@@ -363,14 +363,14 @@ extension XCElementSnapshot {
     
     func wdValue() -> Any? {
         var value = self.value
-        if self.elementType == XCUIElementType.staticText {
+        if self.elementType == XCUIElement.ElementType.staticText {
             if self.value != nil {
                 value = self.value
             } else {
                 value = self.label
             }
         }
-        if self.elementType == XCUIElementType.button {
+        if self.elementType == XCUIElement.ElementType.button {
             if let temp = self.value {
                 if ((temp as? String)?.characters.count) ?? 0 > 0 {
                     value = self.value
@@ -381,12 +381,12 @@ extension XCElementSnapshot {
                 value = self.isSelected
             }
         }
-        if self.elementType == XCUIElementType.switch {
+        if self.elementType == XCUIElement.ElementType.switch {
             value = (self.value as! NSString).doubleValue > 0
         }
-        if self.elementType == XCUIElementType.textField ||
-            self.elementType == XCUIElementType.textView ||
-            self.elementType == XCUIElementType.secureTextField {
+        if self.elementType == XCUIElement.ElementType.textField ||
+            self.elementType == XCUIElement.ElementType.textView ||
+            self.elementType == XCUIElement.ElementType.secureTextField {
             if let temp = self.value {
                 if let str = temp as? String {
                     if str.characters.count > 0 {
@@ -406,7 +406,7 @@ extension XCElementSnapshot {
     }
     
     func wdLabel() -> String? {
-        if self.elementType == XCUIElementType.textField {
+        if self.elementType == XCUIElement.ElementType.textField {
             return self.label
         } else if self.label.characters.count > 0 {
             return self.label
@@ -455,8 +455,8 @@ extension XCElementSnapshot {
         if self.frame.isEmpty || self.visibleFrame.isEmpty
         {return false}
         
-        let app: XCElementSnapshot? = rootElement() as! XCElementSnapshot?
-        let screenSize: CGSize? = MathUtils.adjustDimensionsForApplication((app?.frame.size)!, (XCUIDevice.shared().orientation))
+        let app: XCElementSnapshot? = rootElement() 
+        let screenSize: CGSize? = MathUtils.adjustDimensionsForApplication((app?.frame.size)!, (XCUIDevice.shared.orientation))
         let screenFrame = CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat((screenSize?.width)!), height: CGFloat((screenSize?.height)!))
         let rectIntersects: Bool = visibleFrame.intersects(screenFrame)
         
@@ -468,7 +468,7 @@ extension XCElementSnapshot {
     
     //MARK: Accessibility Measurement
     func isWDAccessible() -> Bool {
-        if self.elementType == XCUIElementType.cell {
+        if self.elementType == XCUIElement.ElementType.cell {
             if !isAccessibile() {
                 let containerView: XCElementSnapshot? = children.first as? XCElementSnapshot
                 if !(containerView?.isAccessibile())! {
@@ -476,7 +476,7 @@ extension XCElementSnapshot {
                 }
             }
         }
-        else if self.elementType != XCUIElementType.textField && self.elementType != XCUIElementType.secureTextField {
+        else if self.elementType != XCUIElement.ElementType.textField && self.elementType != XCUIElement.ElementType.secureTextField {
             if !isAccessibile() {
                 return false
             }
@@ -484,7 +484,7 @@ extension XCElementSnapshot {
         
         var parentSnapshot: XCElementSnapshot? = parent
         while (parentSnapshot != nil) {
-            if ((parentSnapshot?.isAccessibile())! && parentSnapshot?.elementType != XCUIElementType.table) {
+            if ((parentSnapshot?.isAccessibile())! && parentSnapshot?.elementType != XCUIElement.ElementType.table) {
                 return false;
             }
             
