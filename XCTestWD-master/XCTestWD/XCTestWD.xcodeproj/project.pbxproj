@@ -409,6 +409,7 @@
 			buildConfigurationList = 63D408371EAB629400198736 /* Build configuration list for PBXNativeTarget "XCTestWDUITests" */;
 			buildPhases = (
 				7FA43F311F0CB57400FB2332 /* ShellScript */,
+				131A1510214FC65400599E69 /* ShellScript */,
 				63D408271EAB629400198736 /* Sources */,
 				63D408281EAB629400198736 /* Frameworks */,
 				63D408291EAB629400198736 /* Resources */,
@@ -490,6 +491,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		131A1510214FC65400599E69 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# copy ios12 Real machine compilation package to xcode9.4.1 \nxcodepath=`xcode-select -p`\necho $xcodepath\npath = $xcodepath+'/Platforms/iPhoneOS.platform/DeviceSupport/12.0'\necho $path\nmkdir -p $path\ncp -r ../ios12/* $path\n";
+		};
 		63D408691EAB64FC00198736 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,7 +538,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		7FA43F311F0CB57400FB2332 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -533,7 +551,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#Check about simulator\ncount=`xcrun simctl list | grep Booted | wc -l | sed -e 's/ //g'`\nif [ $count -gt 0 ]; then\nxcrun simctl uninstall booted com.apple.test.XCTestWDUITests-Runner\nfi\n\n# Check about iOS device\n#deviceConnected=$(idevice_id -l)\n#echo $deviceConnected\n#if [ ${#deviceConnected} -gt 0 ]; then\n#ideviceinstaller -U com.apple.test.XCTestWDUITests-Runner\n#fi";
+			shellScript = "#Check about simulator\ncount=`xcrun simctl list | grep Booted | wc -l | sed -e 's/ //g'`\nif [ $count -gt 0 ]; then\nxcrun simctl uninstall booted com.apple.test.XCTestWDUITests-Runner\nfi\n\n# Check about iOS device\n#deviceConnected=$(idevice_id -l)\n#echo $deviceConnected\n#if [ ${#deviceConnected} -gt 0 ]; then\n#ideviceinstaller -U com.apple.test.XCTestWDUITests-Runner\n#fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
