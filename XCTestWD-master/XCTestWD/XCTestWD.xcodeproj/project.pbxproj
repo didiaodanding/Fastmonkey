@@ -409,7 +409,6 @@
 			buildConfigurationList = 63D408371EAB629400198736 /* Build configuration list for PBXNativeTarget "XCTestWDUITests" */;
 			buildPhases = (
 				7FA43F311F0CB57400FB2332 /* ShellScript */,
-				131A1510214FC65400599E69 /* ShellScript */,
 				63D408271EAB629400198736 /* Sources */,
 				63D408281EAB629400198736 /* Frameworks */,
 				63D408291EAB629400198736 /* Resources */,
@@ -491,23 +490,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		131A1510214FC65400599E69 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# copy ios12 Real machine compilation package to xcode9.4.1 \nxcodepath=`xcode-select -p`\necho $xcodepath\npath = $xcodepath+'/Platforms/iPhoneOS.platform/DeviceSupport/12.0'\necho $path\nmkdir -p $path\ncp -r ../ios12/* $path\n";
-		};
 		63D408691EAB64FC00198736 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
