@@ -67,7 +67,7 @@ internal class XCTestWDMonkeyController: Controller {
         monkey.addDefaultXCTestPrivateActions()
         monkey.addXCTestTapAlertAction(interval: 100, application: app)
         monkey.addXCTestCheckCurrentApp(interval: 10, application: app)
-        //monkey.addXCTestAppLogin(interval: 50, application: app)
+        //monkey.addXCTestAppLogin(application: app)
         monkey.monkeyAround()
         
         return XCTestWDResponse.response(session: session, value: sessionInformation(session))

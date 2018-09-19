@@ -74,6 +74,11 @@ public class Monkey {
     
     var specalActions: [() -> Void]
     var actionSpecalCounter = 0
+    
+    
+    var setupActions: [() -> Void]
+    var actionSetupCounter = 0
+    
     let lock = DispatchSemaphore(value: 1)
 
     var checkActions: [(interval: Int, action: () -> Void)]
@@ -146,6 +151,7 @@ public class Monkey {
         self.regularActions = []
         self.specalActions = []
         self.checkActions = []
+        self.setupActions = []
         self.pid = Int(XCTestWDFindElementUtils.getAppPid())
     }
 
@@ -165,6 +171,7 @@ public class Monkey {
         }
         DispatchQueue.global().async {
             for _ in 1 ... iterations {
+                self.actSetUp()
                 self.actRandomly()
                 self.actRegularly()
                 self.actSpecial()
@@ -194,6 +201,7 @@ public class Monkey {
         }
         DispatchQueue.global().async {
             while true{
+                self.actSetUp()
                 self.actRandomly()
                 self.actRegularly()
                 self.actSpecial()
@@ -267,6 +275,16 @@ public class Monkey {
         }
     }
     
+    ///Generate front event
+    public func actSetUp(){
+        actionSetupCounter += 1
+        while setupActions.count != 0 {
+            let action = setupActions.removeFirst()
+            actionLock(action: action)
+        }
+    }
+    
+    
     /// Generate one check app event
     public func actCheck(){
         for action in checkActions {
@@ -316,6 +334,12 @@ public class Monkey {
         specalActions.append(action)
     }
 
+    /**
+     Add a block for generating setup events
+     */
+    public func addSetupAction(action: @escaping () -> Void){
+        setupActions.append(action)
+    }
     /**
         Generate a random `Int`.
 

@@ -97,21 +97,21 @@ extension Monkey {
      */
 
     public func addXCTestAppLogin(application:XCUIApplication) {
-        addAction(){ [weak self] in
+        addSetupAction(){ [weak self] in
             do{
                 let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
                 let root = session.application
                 if root != nil{
                     let usage = "name"
                     let tag = "帐号密码登录"
-                    //let cgy = try? XCTestWDFindElementUtils.tree(underElement: root!)
+//                    let cgy = try? XCTestWDFindElementUtils.tree(underElement: root!)
                     let element = try? XCTestWDFindElementUtils.filterElement(usingText: usage, withvalue: tag, underElement: root!)
                     if let element = element {
                         if element != nil {
                             self?.addXCTestLoginAction(element:element!, application: application)
                         }
                         else{
-                            return
+                            self?.addXCTestLoginActionNoElement(application: application)
                         }
                     }
                 }

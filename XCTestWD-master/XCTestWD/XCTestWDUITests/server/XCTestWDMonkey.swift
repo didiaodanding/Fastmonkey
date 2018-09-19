@@ -38,6 +38,8 @@ public class XCTestWDMonkey {
         monkey.addDefaultXCTestPrivateActions()
         monkey.addXCTestTapAlertAction(interval: 100, application: app)
         monkey.addXCTestCheckCurrentApp(interval: 10, application: app)
+        
+        //add setup events
 //        monkey.addXCTestAppLogin(application: app)
 //        monkey.addXCTestAppQuiteH5Page(interval: 30, application: app)
 //        monkey.addXCTestAppQuiteGamePlayPage(interval: 30, application: app)
