@@ -243,8 +243,28 @@ internal class XCTestWDElementController: Controller {
         if element == nil {
             return XCTestWDResponse.response(session: nil, error: WDStatus.NoSuchElement)
         }
-        
-        let value = element?.value(forKey: (attributeName?.capitalized)!)
+        var value: Any?
+        if (attributeName?.capitalized)!.lowercased().contains("enable"){
+            value = element?.isEnabled
+        }else if (attributeName?.capitalized)!.lowercased().contains("name"){
+            value = element?.wdName()
+        }else if (attributeName?.capitalized)!.lowercased().contains("value"){
+            value = element?.wdValue()
+        }else if (attributeName?.capitalized)!.lowercased().contains("label"){
+            value = element?.wdLabel()
+        }else if (attributeName?.capitalized)!.lowercased().contains("type"){
+            value = element?.wdType()
+        }else if (attributeName?.capitalized)!.lowercased().contains("visible"){
+            if element?.lastSnapshot == nil {
+                element?.resolve()
+            }
+            value = try? element?.lastSnapshot.isWDVisible() ?? false
+        }else if (attributeName?.capitalized)!.lowercased().contains("access"){
+            if element?.lastSnapshot == nil {
+                element?.resolve()
+            }
+            value = element?.lastSnapshot.isAccessibile()
+        }
         return XCTestWDResponse.response(session: session, value: JSON(value as Any))
     }
     

@@ -80,19 +80,17 @@
 		7FD799781EBC15D70053C4D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FD799771EBC15D70053C4D2 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8385493D21564B8400F52A19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63D4080F1EAB629400198736 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63D408161EAB629400198736;
+			remoteInfo = XCTestWD;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		13239F9021429DF200F79A0A /* GLToolsExpert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsExpert.framework; sourceTree = "<group>"; };
-		13239F9121429DF200F79A0A /* GLToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsMobileFoundation.framework; sourceTree = "<group>"; };
-		13239F9221429DF200F79A0A /* GPUToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileFoundation.framework; sourceTree = "<group>"; };
-		13239F9321429DF200F79A0A /* GPUToolsMobileKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileKit.framework; sourceTree = "<group>"; };
-		13239F9421429DF200F79A0A /* GXTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GXTools.framework; sourceTree = "<group>"; };
-		13239F9521429DF200F79A0A /* XCTAutomationSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTAutomationSupport.framework; sourceTree = "<group>"; };
-		13239F9721429DF800F79A0A /* GLToolsExpert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsExpert.framework; sourceTree = "<group>"; };
-		13239F9821429DF800F79A0A /* GLToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsMobileFoundation.framework; sourceTree = "<group>"; };
-		13239F9921429DF800F79A0A /* GPUToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileFoundation.framework; sourceTree = "<group>"; };
-		13239F9A21429DF800F79A0A /* GPUToolsMobileKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileKit.framework; sourceTree = "<group>"; };
-		13239F9B21429DF800F79A0A /* GXTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GXTools.framework; sourceTree = "<group>"; };
-		13239F9C21429DF800F79A0A /* XCTAutomationSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTAutomationSupport.framework; sourceTree = "<group>"; };
 		13239F9E21429DFA00F79A0A /* GLToolsExpert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsExpert.framework; sourceTree = "<group>"; };
 		13239F9F21429DFA00F79A0A /* GLToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLToolsMobileFoundation.framework; sourceTree = "<group>"; };
 		13239FA021429DFA00F79A0A /* GPUToolsMobileFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GPUToolsMobileFoundation.framework; sourceTree = "<group>"; };
@@ -200,34 +198,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13239F8F21429DF200F79A0A /* PrivateFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				13239F9021429DF200F79A0A /* GLToolsExpert.framework */,
-				13239F9121429DF200F79A0A /* GLToolsMobileFoundation.framework */,
-				13239F9221429DF200F79A0A /* GPUToolsMobileFoundation.framework */,
-				13239F9321429DF200F79A0A /* GPUToolsMobileKit.framework */,
-				13239F9421429DF200F79A0A /* GXTools.framework */,
-				13239F9521429DF200F79A0A /* XCTAutomationSupport.framework */,
-			);
-			name = PrivateFrameworks;
-			path = Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks;
-			sourceTree = DEVELOPER_DIR;
-		};
-		13239F9621429DF800F79A0A /* PrivateFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				13239F9721429DF800F79A0A /* GLToolsExpert.framework */,
-				13239F9821429DF800F79A0A /* GLToolsMobileFoundation.framework */,
-				13239F9921429DF800F79A0A /* GPUToolsMobileFoundation.framework */,
-				13239F9A21429DF800F79A0A /* GPUToolsMobileKit.framework */,
-				13239F9B21429DF800F79A0A /* GXTools.framework */,
-				13239F9C21429DF800F79A0A /* XCTAutomationSupport.framework */,
-			);
-			name = PrivateFrameworks;
-			path = Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks;
-			sourceTree = DEVELOPER_DIR;
-		};
 		13239F9D21429DFA00F79A0A /* PrivateFrameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,8 +371,6 @@
 		63D4083A1EAB62D500198736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				13239F8F21429DF200F79A0A /* PrivateFrameworks */,
-				13239F9621429DF800F79A0A /* PrivateFrameworks */,
 				13239F9D21429DFA00F79A0A /* PrivateFrameworks */,
 				22AC58A31F42E5EE006F85D7 /* libxml2.2.tbd */,
 				7FD799771EBC15D70053C4D2 /* Foundation.framework */,
@@ -479,6 +447,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8385493E21564B8400F52A19 /* PBXTargetDependency */,
 			);
 			name = XCTestWDUITests;
 			productName = XCTestWDUITests;
@@ -497,13 +466,13 @@
 				TargetAttributes = {
 					63D408161EAB629400198736 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 48U7H75HY6;
+						DevelopmentTeam = M3KDMAPZ8B;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					63D4082A1EAB629400198736 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 48U7H75HY6;
+						DevelopmentTeam = M3KDMAPZ8B;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
@@ -655,6 +624,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8385493E21564B8400F52A19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63D408161EAB629400198736 /* XCTestWD */;
+			targetProxy = 8385493D21564B8400F52A19 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		22AC58961F42E59B006F85D7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -799,7 +776,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 48U7H75HY6;
+				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../Carthage/Build/iOS",
 					"$(PLATFORM_DIR)/Developer/Library/PrivateFrameworks",
@@ -808,7 +785,7 @@
 				INFOPLIST_FILE = XCTestWD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencnet.monkey;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencnet.monkey13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -826,7 +803,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 48U7H75HY6;
+				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../Carthage/Build/iOS",
 					"$(PLATFORM_DIR)/Developer/Library/PrivateFrameworks",
@@ -835,7 +812,7 @@
 				INFOPLIST_FILE = XCTestWD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencnet.monkey;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencnet.monkey13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -850,7 +827,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 48U7H75HY6;
+				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../Carthage/Build/iOS",
 					"$(PLATFORM_DIR)/Developer/Library/PrivateFrameworks",
@@ -869,7 +846,7 @@
 					"-framework",
 					XCTAutomationSupport,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.monkey;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.monkey13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -890,7 +867,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 48U7H75HY6;
+				DEVELOPMENT_TEAM = M3KDMAPZ8B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../Carthage/Build/iOS",
 					"$(PLATFORM_DIR)/Developer/Library/PrivateFrameworks",
@@ -909,7 +886,7 @@
 					"-framework",
 					XCTAutomationSupport,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.monkey;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.monkey13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -236,31 +236,31 @@ extension XCUIElement {
         }
     }
     
-    open override func value(forKey key: String) -> Any? {
-        if key.lowercased().contains("enable") {
-            return self.isEnabled
-        } else if key.lowercased().contains("name") {
-            return self.wdName() ?? ""
-        } else if key.lowercased().contains("value") {
-            return self.wdValue()
-        } else if key.lowercased().contains("label") {
-            return self.wdLabel()
-        } else if key.lowercased().contains("type") {
-            return self.wdType()
-        } else if key.lowercased().contains("visible") {
-            if self.lastSnapshot == nil {
-                self.resolve()
-            }
-            return try? self.lastSnapshot.isWDVisible()
-        } else if key.lowercased().contains("access") {
-            if self.lastSnapshot == nil {
-                self.resolve()
-            }
-            return self.lastSnapshot.isAccessibile()
-        }
-        
-        return ""
-    }
+//    open override func value(forKey key: String) -> Any? {
+//        if key.lowercased().contains("enable") {
+//            return self.isEnabled
+//        } else if key.lowercased().contains("name") {
+//            return self.wdName() ?? ""
+//        } else if key.lowercased().contains("value") {
+//            return self.wdValue()
+//        } else if key.lowercased().contains("label") {
+//            return self.wdLabel()
+//        } else if key.lowercased().contains("type") {
+//            return self.wdType()
+//        } else if key.lowercased().contains("visible") {
+//            if self.lastSnapshot == nil {
+//                self.resolve()
+//            }
+//            return try? self.lastSnapshot.isWDVisible()
+//        } else if key.lowercased().contains("access") {
+//            if self.lastSnapshot == nil {
+//                self.resolve()
+//            }
+//            return self.lastSnapshot.isAccessibile()
+//        }
+//        
+//        return ""
+//    }
     
     open override func value(forUndefinedKey key: String) -> Any? {
         return ""

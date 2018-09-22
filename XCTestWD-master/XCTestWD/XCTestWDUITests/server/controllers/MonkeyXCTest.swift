@@ -28,21 +28,24 @@ extension Monkey {
     */
     public func addXCTestTapAlertAction(interval: Int, application: XCUIApplication) {
         addAction(interval: interval) { [weak self] in
-            // The test for alerts on screen and dismiss them if there are any.
-            //            for i in 0 ..< application.alerts.count {
-            //                let alert = application.alerts.element(boundBy: i)
-            //                let buttons = alert.descendants(matching: .button)
-            //                XCTAssertNotEqual(buttons.count, 0, "No buttons in alert")
-            //                let index = UInt(self!.r.randomUInt32() % UInt32(buttons.count))
-            //                let button = buttons.element(boundBy: index)
-            //                button.tap()
-            //            }
-            usleep(2000000)
-            //let isRunning = application.running
-            //let current = Int(XCTestWDFindElementUtils.getAppPid())
-            //if current == 0 {
-            //    return
-            //}
+            //处理系统弹窗
+            let sprintboard = XCUIApplication.init(privateWithPath: nil, bundleID: "com.apple.springboard")!
+            for i in 0 ..< sprintboard.alerts.count {
+                if sprintboard.buttons["允许"].exists{
+                    sprintboard.buttons["允许"].tap()
+                }else if sprintboard.buttons["好"].exists{
+                    sprintboard.buttons["好"].tap()
+                }else{
+                    let alert = sprintboard.alerts.element(boundBy: i)
+                    let buttons = alert.descendants(matching: .button)
+                    if(UInt32(buttons.count) != 0){
+                        let index = Int(self!.r.randomUInt32() % UInt32(buttons.count))
+                        let button = buttons.element(boundBy: index)
+                        button.tap()
+                    }
+                }
+            }
+            //处理被测app内的弹窗
             if application.state == XCUIApplication.State.runningForeground {
                 for i in 0 ..< application.alerts.count {
                     let alert = application.alerts.element(boundBy: i)
