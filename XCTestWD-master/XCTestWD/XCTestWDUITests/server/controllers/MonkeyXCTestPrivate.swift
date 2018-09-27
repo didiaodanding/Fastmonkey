@@ -385,6 +385,27 @@ extension Monkey {
         }
     }
     
+    public func addXCTestAdjustvolumeAction(weight: Double) {
+        addAction(weight: weight) { [weak self] in
+            let random = self!.r.randomInt(lessThan:10)
+            if random % 10 > 5 {
+                for _ in 0 ..< (random - 5) {
+                    XCUIDevice.shared.press(XCUIDevice.Button.volumeUp)
+                }
+            } else {
+                for _ in 0 ..< random {
+                    XCUIDevice.shared.press(XCUIDevice.Button.volumeDown)
+                }
+            }
+        }
+    }
+    
+    public func addXCTestHomeAction(weight: Double) {
+        addAction(weight: weight) {
+            XCUIDevice.shared.press(XCUIDevice.Button.home)
+        }
+    }
+    
     /**
         Add an action that generates a pinch close gesture
         at a random screen position using the private XCTest API.

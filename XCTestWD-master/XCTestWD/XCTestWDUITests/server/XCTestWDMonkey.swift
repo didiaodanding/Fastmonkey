@@ -12,7 +12,7 @@ public class XCTestWDMonkey {
 
     func startMonkey() -> Int {
         
-        let bundleID = "com.tencent.microvision.dailybuild"
+        let bundleID = "com.tencent.microvision"
 
         var app : XCUIApplication!
         var session : XCTestWDSession!
@@ -38,6 +38,8 @@ public class XCTestWDMonkey {
         monkey.addDefaultXCTestPrivateActions()
         monkey.addXCTestTapAlertAction(interval: 100, application: app)
         monkey.addXCTestCheckCurrentApp(interval: 10, application: app)
+        monkey.addXCTestAdjustvolumeAction(weight: 1)
+        monkey.addXCTestHomeAction(weight: 0.1)
 //        monkey.addXCTestAppLogin(application: app)
 //        monkey.addXCTestAppQuiteH5Page(interval: 30, application: app)
 //        monkey.addXCTestAppQuiteGamePlayPage(interval: 30, application: app)
