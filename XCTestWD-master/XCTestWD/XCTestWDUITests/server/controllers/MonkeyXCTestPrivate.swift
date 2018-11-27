@@ -388,14 +388,25 @@ extension Monkey {
     public func addXCTestAdjustvolumeAction(weight: Double) {
         addAction(weight: weight) { [weak self] in
             let random = self!.r.randomInt(lessThan:10)
-            if random % 10 > 5 {
-                for _ in 0 ..< (random - 5) {
-                    XCUIDevice.shared.press(XCUIDevice.Button.volumeUp)
+            let now = Date()
+            let dformatter = DateFormatter()
+            dformatter.dateFormat = "HH"
+            let tempTime = Int(dformatter.string(from: now))
+            if(tempTime! < 12 || tempTime! > 15){
+                if random % 10 > 5 {
+                    for _ in 0 ..< (random - 5) {
+                        XCUIDevice.shared.press(XCUIDevice.Button.volumeUp)
+                    }
+                } else {
+                    for _ in 0 ..< random {
+                        XCUIDevice.shared.press(XCUIDevice.Button.volumeDown)
+                    }
                 }
-            } else {
-                for _ in 0 ..< random {
+            }else{
+                for _ in 0 ..< 20 {
                     XCUIDevice.shared.press(XCUIDevice.Button.volumeDown)
                 }
+                print("当前是午休时间，禁止有声音")
             }
         }
     }

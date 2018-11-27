@@ -12,12 +12,13 @@ public class XCTestWDMonkey {
 
     func startMonkey() -> Int {
         
-        let bundleID = "com.tencent.microvision"
+        let bundleID = "com.tencent.qzone.dailybuild"
 
         var app : XCUIApplication!
         var session : XCTestWDSession!
         let path :String? = nil
         app = XCUIApplication.init(privateWithPath: path, bundleID: bundleID)!
+        app!.isIdleAnimationWaitEnabled = true
         app!.launch()
 
         if app != nil {
@@ -47,5 +48,4 @@ public class XCTestWDMonkey {
         RunLoop.main.run()
         return 0
     }
-
 }

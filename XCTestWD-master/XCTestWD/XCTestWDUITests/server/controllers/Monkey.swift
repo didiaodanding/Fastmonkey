@@ -215,8 +215,10 @@ public class Monkey {
 
     public func actionLock(action:@escaping ()->Void){
         let work = DispatchWorkItem(qos:.default){
+            //let isMain = Thread.isMainThread
             self.lock.wait()
             self.count += 1
+            NSLog("执行第%i步", self.count)
             action()
             if self.throttle != 0 {
                 if self.randomize_throttle {
@@ -234,6 +236,7 @@ public class Monkey {
             return
         }
         DispatchQueue.main.sync(execute:work)
+        
     }
     
     /// Generate one random event.

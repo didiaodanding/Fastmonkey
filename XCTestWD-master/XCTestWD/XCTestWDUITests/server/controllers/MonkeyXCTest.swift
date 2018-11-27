@@ -35,14 +35,14 @@ extension Monkey {
                     sprintboard.buttons["允许"].tap()
                 }else if sprintboard.buttons["好"].exists{
                     sprintboard.buttons["好"].tap()
+                }else if sprintboard.buttons["打开"].exists{
+                    sprintboard.buttons["打开"].tap()
                 }else{
                     let alert = sprintboard.alerts.element(boundBy: i)
                     let buttons = alert.descendants(matching: .button)
-                    if(UInt32(buttons.count) != 0){
-                        let index = Int(self!.r.randomUInt32() % UInt32(buttons.count))
-                        let button = buttons.element(boundBy: index)
-                        button.tap()
-                    }
+                    let random = self!.r.randomInt(lessThan:buttons.count)
+                    let button = buttons.element(boundBy: random)
+                    button.tap()
                 }
             }
             //处理被测app内的弹窗
@@ -50,11 +50,9 @@ extension Monkey {
                 for i in 0 ..< application.alerts.count {
                     let alert = application.alerts.element(boundBy: i)
                     let buttons = alert.descendants(matching: .button)
-                    if(UInt32(buttons.count) != 0){
-                        let index = Int(self!.r.randomUInt32() % UInt32(buttons.count))
-                        let button = buttons.element(boundBy: index)
-                        button.tap()
-                    }
+                    let random = self!.r.randomInt(lessThan:buttons.count)
+                    let button = buttons.element(boundBy: random)
+                    button.tap()
                 }
             }else{
                 application.activate()
