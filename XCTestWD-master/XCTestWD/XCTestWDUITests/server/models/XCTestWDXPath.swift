@@ -41,6 +41,7 @@ internal class XCTestWDXPath {
                 let point = CGPoint(x:cX,y:cY)
                 if list.contains(point) == false {
                     list.append(point)
+                }
             }
         }
         return list
