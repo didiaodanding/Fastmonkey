@@ -43,7 +43,7 @@ public class XCTestWDMonkey {
         monkey.addXCTestHomeAction(weight: 0.1)
 //        monkey.addXCTestAppLogin(application: app)
 //        monkey.addXCTestAppQuiteH5Page(interval: 30, application: app)
-//        monkey.addXCTestAppQuiteGamePlayPage(interval: 30, application: app)
+        monkey.addXCTestAppQuiteGamePlayPage(interval: 30, application: app)
         monkey.monkeyAround()
         RunLoop.main.run()
         return 0

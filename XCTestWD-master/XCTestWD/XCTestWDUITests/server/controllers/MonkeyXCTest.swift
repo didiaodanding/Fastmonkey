@@ -28,6 +28,20 @@ extension Monkey {
     */
     public func addXCTestTapAlertAction(interval: Int, application: XCUIApplication) {
         addAction(interval: interval) { [weak self] in
+            //处理被测app内的弹窗
+            if application.state == XCUIApplication.State.runningForeground {
+                for i in 0 ..< application.alerts.count {
+                    let alert = application.alerts.element(boundBy: i)
+                    let buttons = alert.descendants(matching: .button)
+                    let random = self!.r.randomInt(lessThan:buttons.count)
+                    let button = buttons.element(boundBy: random)
+                    button.tap()
+                }
+            }else{
+                application.activate()
+                self!.sleep(5)
+                self?.pid = Int(XCTestWDFindElementUtils.getAppPid())
+            }
             //处理系统弹窗
             let sprintboard = XCUIApplication.init(privateWithPath: nil, bundleID: "com.apple.springboard")!
             for i in 0 ..< sprintboard.alerts.count {
@@ -44,20 +58,6 @@ extension Monkey {
                     let button = buttons.element(boundBy: random)
                     button.tap()
                 }
-            }
-            //处理被测app内的弹窗
-            if application.state == XCUIApplication.State.runningForeground {
-                for i in 0 ..< application.alerts.count {
-                    let alert = application.alerts.element(boundBy: i)
-                    let buttons = alert.descendants(matching: .button)
-                    let random = self!.r.randomInt(lessThan:buttons.count)
-                    let button = buttons.element(boundBy: random)
-                    button.tap()
-                }
-            }else{
-                application.activate()
-                self!.sleep(5)
-                self?.pid = Int(XCTestWDFindElementUtils.getAppPid())
             }
         }
     }
@@ -126,24 +126,24 @@ extension Monkey {
      Add an action that check H5 keypoint, at a fixed interval,
      if find key point, take quit H5 Page event
      */
-    public func addXCTestAppQuiteH5Page(interval:Int, application:XCUIApplication) {
-        addAction(interval:interval){ [weak self] in
-            do{
-                let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
-                let root = session.application
-                if root != nil{
-                    let element = XCTestWDFindElementUtils.getElement(underElement: root!)
-                    if (element)! {
-                        self?.addXCTestQuitH5PageAction(application: application)
-                    }else{
-                            return
-                        }
-                }
-            }catch{
-                return
-            }
-        }
-    }
+//    public func addXCTestAppQuiteH5Page(interval:Int, application:XCUIApplication) {
+//        addAction(interval:interval){ [weak self] in
+//            do{
+//                let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
+//                let root = session.application
+//                if root != nil{
+//                    let element = XCTestWDFindElementUtils.getElement(underElement: root!)
+//                    if (element)! {
+//                        self?.addXCTestQuitH5PageAction(application: application)
+//                    }else{
+//                            return
+//                        }
+//                }
+//            }catch{
+//                return
+//            }
+//        }
+//    }
     
     /**
      Add an action that check 玩吧 keypoint, at a fixed interval,

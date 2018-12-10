@@ -14,11 +14,9 @@ internal class XCTestWDXPath {
     
     //MARK: External API
     static let defaultTopDir = "top"
-    
-    static func xpathToList(_ root:XCElementSnapshot, _ xpathQuery:String) -> [CGPoint]? {
-        
+    static func xpathToList(_ root:XCElementSnapshot, _ xpathQuery:String, _ appRect:CGRect) -> [CGPoint]? {
         var mapping = [String:XCElementSnapshot]()
-        let xml = generateXMLPresentation(root,nil,nil,defaultTopDir,&mapping)?.xml
+        let xml = generateXMLPresentation(root,nil,nil,defaultTopDir,&mapping,appRect)?.xml
         if xml == nil
         {return nil}
         
@@ -29,13 +27,12 @@ internal class XCTestWDXPath {
             if mapping[node.attr("private_indexPath")!] != nil{
                 let x = (node.attr("x")! as NSString).floatValue
                 let y = (node.attr("y")! as NSString).floatValue
-                if (x <= 0) && (y <= 0)
+                if (x < 0) || (y < 0) || (x > Float(appRect.size.width)) || (y > Float(appRect.size.height))
                 {continue}
-                
-                let snapshot = mapping[node.attr("private_indexPath")!]
-                let isvisible = try? snapshot?.isWDVisible()
-                if isvisible == nil || isvisible! == false
-                {continue}
+//                let snapshot = mapping[node.attr("private_indexPath")!]
+//                let isvisible = try? snapshot?.isWDVisible()
+//                if isvisible == nil || isvisible! == false
+//                {continue}
                 
                 let w = (node.attr("width")! as NSString).floatValue
                 let h = (node.attr("height")! as NSString).floatValue
@@ -44,20 +41,19 @@ internal class XCTestWDXPath {
                 let point = CGPoint(x:cX,y:cY)
                 if list.contains(point) == false {
                     list.append(point)
-                }
             }
         }
         return list
     }
     
-    static func findMatchesIn(_ root:XCElementSnapshot, _ xpathQuery:String) -> [XCElementSnapshot]? {
+    static func findMatchesIn(_ root:XCElementSnapshot, _ xpathQuery:String, _ appRect:CGRect) -> [XCElementSnapshot]? {
         
         var mapping = [String:XCElementSnapshot]()
         let documentXml = generateXMLPresentation(root,
                                                   nil,
                                                   nil,
                                                   defaultTopDir,
-                                                  &mapping)?.xml
+                                                  &mapping,appRect)?.xml
         
         if documentXml == nil {
             return nil
@@ -76,30 +72,30 @@ internal class XCTestWDXPath {
         return results
     }
     
-    static func findMatchesH5Page(_ root:XCElementSnapshot, _ xpathQuery:String) -> Bool? {
-        
-        var mapping = [String:XCElementSnapshot]()
-        let documentXml = generateXMLPresentation(root,
-                                                  nil,
-                                                  nil,
-                                                  defaultTopDir,
-                                                  &mapping)?.xml
-        
-        if documentXml == nil {
-            return nil
-        }
-        let document = try? XMLDocument(string: documentXml!, encoding:String.Encoding.utf8)
-        let nodes = document?.xpath(xpathQuery)
-        for node in nodes! {
-            if node.attr("name") != nil && node.attr("name")!.contains("网页由"){
-                return true
-            }
-        }
-        return false
-    }
-    
+//    static func findMatchesH5Page(_ root:XCElementSnapshot, _ xpathQuery:String) -> Bool? {
+//        
+//        var mapping = [String:XCElementSnapshot]()
+//        let documentXml = generateXMLPresentation(root,
+//                                                  nil,
+//                                                  nil,
+//                                                  defaultTopDir,
+//                                                  &mapping)?.xml
+//        
+//        if documentXml == nil {
+//            return nil
+//        }
+//        let document = try? XMLDocument(string: documentXml!, encoding:String.Encoding.utf8)
+//        let nodes = document?.xpath(xpathQuery)
+//        for node in nodes! {
+//            if node.attr("name") != nil && node.attr("name")!.contains("网页由"){
+//                return true
+//            }
+//        }
+//        return false
+//    }
+//    
     //MARK: Internal Utils
-    static func generateXMLPresentation(_ root:XCElementSnapshot, _ parentElement:AEXMLElement?, _ writingDocument:AEXMLDocument?, _ indexPath:String, _ mapping: inout [String:XCElementSnapshot]) -> AEXMLDocument? {
+    static func generateXMLPresentation(_ root:XCElementSnapshot, _ parentElement:AEXMLElement?, _ writingDocument:AEXMLDocument?, _ indexPath:String, _ mapping: inout [String:XCElementSnapshot], _ appRect:CGRect) -> AEXMLDocument? {
         
         let elementName = XCUIElementTypeTransformer.singleton.stringWithElementType(root.elementType)
         let currentElement = AEXMLElement(name:elementName)
@@ -117,11 +113,13 @@ internal class XCTestWDXPath {
         var index = 0;
         for child in root.children {
             let childSnapshot = child as! XCElementSnapshot
+            if (Float(childSnapshot.wdRect()["x"] ?? -1) < 0) || (Float(childSnapshot.wdRect()["y"] ?? -1) < 0) || (childSnapshot.wdRect()["width"] ?? 10000 > appRect.width) || (childSnapshot.wdRect()["height"] ?? 10000 > appRect.height)
+            {continue}
             let childIndexPath = indexPath.appending(",\(index)")
             index += 1
             mapping[childIndexPath] = childSnapshot
 
-            _ = generateXMLPresentation(childSnapshot, currentElement, document, childIndexPath, &mapping)
+            _ = generateXMLPresentation(childSnapshot, currentElement, document, childIndexPath, &mapping,appRect)
         }
 
         return document

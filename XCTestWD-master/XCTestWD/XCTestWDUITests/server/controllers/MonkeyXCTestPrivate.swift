@@ -33,15 +33,14 @@ extension Monkey {
         strong requirements on exactly which ones you need.
     */
     public func addDefaultXCTestPrivateActions() {
-        //addXCTestElementTapAction(weight: 10)
-    
-        addXCTestTapAction(weight: 35)
+//        addXCTestTapAction(weight: 35)
         addXCTestLongPressAction(weight: 1)
         addXCTestDragAction(weight: 1)
         addXCTestPinchCloseAction(weight: 1)
         addXCTestPinchOpenAction(weight: 1)
         addXCTestRotateAction(weight: 1)
         addXCTestSlipScreenAction(weight: 5)
+        addXCTestElementTapAction(weight: 10)
         //addXCTestOrientationAction(weight: 1) // TODO: Investigate why this does not work.
     }
 
@@ -92,13 +91,14 @@ extension Monkey {
         addAction(weight: weight){[weak self] in
             let numberOfTaps: UInt = 1
             do{
+                print("UITest 执行随机元素坐标点击")
                 usleep(200000)
                 let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
                 let root = session.application
                 if root == nil{
                     return
                 }
-                let points = try? XCTestWDFindElementUtils.tree(underElement: root!)
+                let points = try? XCTestWDFindElementUtils.tree(underElement: root!, appRect: self!.frame)
                 if points == nil  || points??.count == 0 {
                     return
                 }
@@ -203,7 +203,7 @@ extension Monkey {
                     if let element = element {
                         NSLog("XCTestWDSetup->quit H5 Page button find?\(String(describing: element))<-XCTestWDSetup")
                         let rect = element.wdCenter()
-                        _ = element.pageSourceToPoint()
+                        _ = element.pageSourceToPoint(appRect: self!.frame)
                         let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
                         //let point = CGPoint(x:256,y:443)
                         let locations = [point]

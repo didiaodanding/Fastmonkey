@@ -11,17 +11,17 @@ class XCTestWDFindElementUtils {
     
     // TODO: provide alert filter here
     
-    static func tree(underElement:XCUIElement) throws -> [CGPoint]? {
-        return underElement.pageSourceToPoint()
+    static func tree(underElement:XCUIElement, appRect:CGRect) throws -> [CGPoint]? {
+        return underElement.pageSourceToPoint(appRect:appRect)
     }
     
     static func getAppName(underElement:XCUIElement) -> String{
         return underElement.rootName()
     }
     
-    static func getElement(underElement:XCUIElement) -> Bool?{
-        return underElement.checkH5Page()
-    }
+//    static func getElement(underElement:XCUIElement) -> Bool?{
+//        return underElement.checkH5Page()
+//    }
     
     static func getAppPid() -> Int32{
         let application = XCTestWDSession.activeApplication()
@@ -40,7 +40,6 @@ class XCTestWDFindElementUtils {
     
     // Routing for xpath, class name, name, id
     static func filterElements(usingText:String, withValue:String, underElement:XCUIElement, returnAfterFirstMatch:Bool) throws -> [XCUIElement]? {
-        
         let isSearchByIdentifier = (usingText == "name" || usingText == "id" || usingText == "accessibility id" || usingText == "value")
         
         if usingText == "xpath" {

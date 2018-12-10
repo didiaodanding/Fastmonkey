@@ -119,27 +119,27 @@ extension XCUIElement {
     }
     
 
-    func pageSourceToPoint() -> [CGPoint]?{
+    func pageSourceToPoint(appRect:CGRect) -> [CGPoint]?{
         if self.lastSnapshot == nil {
             self.resolve()
         }
-        let xpath = "//XCUIElementTypeButton | //XCUIElementTypeStaticText | //XCUIElementTypeImage "
+        let xpath = "//XCUIElementTypeButton | //XCUIElementTypeStaticText | //XCUIElementTypeImage | //XCUIElementTypeTextView | //XCUIElementTypeNavigationBar"
         //& //*[not(ancestor-or-self::XCUIElementTypeStatusBar)]"
-        let map = XCTestWDXPath.xpathToList(self.lastSnapshot, xpath)
+        let map = XCTestWDXPath.xpathToList(self.lastSnapshot, xpath, appRect)
         if map == nil{
             return nil
         }
         return map
     }
     
-    func checkH5Page() -> Bool?{
-        if self.lastSnapshot == nil {
-            self.resolve()
-        }
-        let xpath = "//XCUIElementTypeStaticText"
-        //& //*[not(ancestor-or-self::XCUIElementTypeStatusBar)]"
-        return XCTestWDXPath.findMatchesH5Page(self.lastSnapshot, xpath)
-    }
+//    func checkH5Page() -> Bool?{
+//        if self.lastSnapshot == nil {
+//            self.resolve()
+//        }
+//        let xpath = "//XCUIElementTypeStaticText"
+//        //& //*[not(ancestor-or-self::XCUIElementTypeStatusBar)]"
+//        return XCTestWDXPath.findMatchesH5Page(self.lastSnapshot, xpath)
+//    }
     
     //MARK: element query
     func descendantsMatchingXPathQuery(xpathQuery:String, returnAfterFirstMatch:Bool) -> [XCUIElement]? {
@@ -149,7 +149,7 @@ extension XCUIElement {
         
         let query = xpathQuery.replacingOccurrences(of: "XCUIElementTypeAny", with: "*")
         
-        var matchSnapShots = XCTestWDXPath.findMatchesIn(self.lastSnapshot, query)
+        var matchSnapShots = XCTestWDXPath.findMatchesIn(self.lastSnapshot, query,application.frame)
         if matchSnapShots == nil || matchSnapShots!.count == 0 {
             return [XCUIElement]()
         }
