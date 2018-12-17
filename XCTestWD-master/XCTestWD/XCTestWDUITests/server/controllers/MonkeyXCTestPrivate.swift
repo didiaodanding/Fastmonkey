@@ -33,14 +33,15 @@ extension Monkey {
         strong requirements on exactly which ones you need.
     */
     public func addDefaultXCTestPrivateActions() {
-//        addXCTestTapAction(weight: 35)
+        addXCTestElementTapAction(weight: 1)
+        addXCTestTapAction(weight: 2)
         addXCTestLongPressAction(weight: 1)
         addXCTestDragAction(weight: 1)
         addXCTestPinchCloseAction(weight: 1)
         addXCTestPinchOpenAction(weight: 1)
         addXCTestRotateAction(weight: 1)
         addXCTestSlipScreenAction(weight: 5)
-        addXCTestElementTapAction(weight: 10)
+        
         //addXCTestOrientationAction(weight: 1) // TODO: Investigate why this does not work.
     }
 
