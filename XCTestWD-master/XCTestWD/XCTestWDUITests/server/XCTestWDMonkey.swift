@@ -12,7 +12,7 @@ public class XCTestWDMonkey {
 
     func startMonkey() -> Int {
         
-        let bundleID = "com.tencent.qzone.dailybuild"
+        let bundleID = "com.lxw.abcmousedev"
 
         var app : XCUIApplication!
         var session : XCTestWDSession!
@@ -41,7 +41,7 @@ public class XCTestWDMonkey {
         monkey.addXCTestCheckCurrentApp(interval: 10, application: app)
         monkey.addXCTestAdjustvolumeAction(weight: 1)
         monkey.addXCTestHomeAction(weight: 0.1)
-//        monkey.addXCTestAppLogin(application: app)
+        monkey.addXCTestAppLogin(application: app)
 //        monkey.addXCTestAppQuiteH5Page(interval: 30, application: app)
         monkey.addXCTestAppQuiteGamePlayPage(interval: 30, application: app)
         monkey.monkeyAround()

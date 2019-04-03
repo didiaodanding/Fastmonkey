@@ -98,7 +98,7 @@ extension Monkey {
      */
 
     public func addXCTestAppLogin(application:XCUIApplication) {
-        addAction(){ [weak self] in
+        addSetupAction(){ [weak self] in
             do{
                 let session = try XCTestWDSessionManager.singleton.checkDefaultSessionthrow()
                 let root = session.application
@@ -112,7 +112,7 @@ extension Monkey {
                             self?.addXCTestLoginAction(element:element!, application: application)
                         }
                         else{
-                            return
+                            self?.addXCTestLoginActionNoElement(application: application)
                         }
                     }
                 }

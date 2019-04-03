@@ -227,8 +227,32 @@ extension Monkey {
         
     }
     
+    public func addXCTestLoginActionNoElement(application:XCUIApplication) {
+        addSetupAction(){ [weak self] in
+            do{
+                NSLog("no element is found")
+                
+                let rectarr = [(x:89,y:207),(x:28, y:231),(x:181, y:526)]
+                for rect in rectarr{
+                    let point = CGPoint(x:rect.x,y:rect.y)
+                    let locations = [point]
+                    let semaphore = DispatchSemaphore(value: 0)
+                    let numberOfTaps = 1
+                    self!.sharedXCEventGenerator.tapAtTouchLocations(locations, numberOfTaps: UInt(numberOfTaps), orientation: orientationValue) {
+                        semaphore.signal()
+                    }
+                    semaphore.wait()
+                    self?.sleep(1)
+                }
+                
+            }
+        }
+    }
+
+
+    
     public func addXCTestLoginAction(element:XCUIElement, application:XCUIApplication) {
-        addAction(){ [weak self] in
+        addSetupAction(){ [weak self] in
             do{
                 let rect = element.wdCenter()
                 let point = CGPoint(x:rect["x"]!,y:rect["y"]!)
