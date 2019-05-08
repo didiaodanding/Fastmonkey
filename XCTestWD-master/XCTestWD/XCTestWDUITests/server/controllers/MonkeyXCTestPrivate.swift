@@ -33,7 +33,7 @@ extension Monkey {
         strong requirements on exactly which ones you need.
     */
     public func addDefaultXCTestPrivateActions() {
-        addXCTestElementTapAction(weight: 1)
+//        addXCTestElementTapAction(weight: 1)
         addXCTestTapAction(weight: 2)
         addXCTestLongPressAction(weight: 1)
         addXCTestDragAction(weight: 1)
